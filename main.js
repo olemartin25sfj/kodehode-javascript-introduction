@@ -16,6 +16,7 @@ Read the terminal output before and after to see the difference
 
 export function start() {
   //your code here
+  return true;
   // return true
 };
 
@@ -33,6 +34,7 @@ HINT: Use the modulo operator (%) Google it! 😊
 
 export const oddOrEven = () => {
   //your code here
+
 };
 
 /******************************************************************************
