@@ -84,8 +84,20 @@ The function should return:
 
 ******************************************************************************/
 
-export const greeter = () => {
+export const greeter = (name, hour) => {
   //your code here
+  if (hour < 0 || hour > 23) {
+    return "Invalid time";
+  } else if (hour >= 0 && hour <= 5) {
+    return `Good night ${name}`;
+  } else if (hour >= 6 && hour <= 11) {
+    return `Good morning ${name}`;
+  } else if (hour >= 12 && hour <= 17) {
+    return `Good day ${name}`;
+  } else if (hour >= 18 && hour <= 23) {
+    return `Good evening ${name}`;
+  }
+
 };
 
 /******************************************************************************
@@ -102,8 +114,9 @@ Example 2: ["One", "Two", "Three", "Four", "Five", "Six"] should return
 ["Two", "Three", "Four", "Five"]
 ******************************************************************************/
 
-export function arrayTrimmer() {
+export function arrayTrimmer(arr) {
   //your code here
+   return arr.slice(1, arr.length - 1);
 }
 
 /******************************************************************************
@@ -125,8 +138,9 @@ Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
 
-export const cleanAndFun = () => {
+export const cleanAndFun = (text) => {
   //your code here
+  return text.trim().replace('hard', 'fun');
 };
 
 /******************************************************************************
@@ -149,8 +163,18 @@ Use array methods to do the following:
  Return the resulting array.
 ******************************************************************************/
 
-export function marvelEditor() {
+export function marvelEditor(heroes) {
   //your code here
+  heroes.shift();
+  const doctorStrangeIndex = heroes.indexOf("Doctor Strange");
+  if (doctorStrangeIndex !== -1) {
+    heroes[doctorStrangeIndex] = "Skrull";
+  }
+  const thorAndHulkIndex = heroes.indexOf("Thor");
+  if (thorAndHulkIndex !== -1) {
+    heroes.splice(thorAndHulkIndex, 2, "Captain America");
+  }
+  return heroes.join("💪");
 }
 
 /******************************************************************************
@@ -180,8 +204,17 @@ Return "😎Primitive values only😎"
 
 ******************************************************************************/
 
-export function coolMaker() {
+export function coolMaker(value) {
   //your code here
+  if (typeof value === 'string') {
+    return `😎${value}😎`;
+  } else if (typeof value === 'number') {
+    return `😎${(value * 2).toString()}😎`;
+  } else if (typeof value === 'boolean') {
+    return value ? "😎Yeah😎" : "😎Chill😎";
+  } else {
+    return "😎Primitive values only😎";
+  }
 }
 
 /******************************************************************************
@@ -207,6 +240,13 @@ Example3: (["One", "Two", "Three"], "Four") --> ["One", "Two", "Three", "Four"]
 Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 ******************************************************************************/
 
-export const addOrRemove = () => {
+export const addOrRemove = (arr, str) => {
   //your code here
+  const index = arr.indexOf(str);
+  if (index !== -1) {
+    arr.splice(index, 1);
+}else {
+  arr.push(str);
+}
+return arr;
 };
