@@ -56,9 +56,10 @@ Example: "This is cool" should return "THIS IS COOL!"
 
 export function makeMeLoud(text) {
   //your code here
-  function shout(text) {
+  
+  
     return text.toUpperCase() + "!";
-}
+
 
 }
 
