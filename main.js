@@ -166,15 +166,13 @@ Use array methods to do the following:
 export function marvelEditor(heroes) {
   //your code here
   heroes.shift();
-  const doctorStrangeIndex = heroes.indexOf("Doctor Strange");
-  if (doctorStrangeIndex !== -1) {
-    heroes[doctorStrangeIndex] = "Skrull";
-  }
-  const thorAndHulkIndex = heroes.indexOf("Thor");
-  if (thorAndHulkIndex !== -1) {
-    heroes.splice(thorAndHulkIndex, 2, "Captain America");
-  }
-  return heroes.join("💪");
+heroes = heroes.map(hero => hero === "Doctor Strange" ? "Skrull" : hero);
+const thorIndex = heroes.indexOf("Thor");
+if (thorIndex !== -1) {
+  heroes.splice(thorIndex, 2, "Captain America");
+}
+return heroes.join("💪");
+
 }
 
 /******************************************************************************
